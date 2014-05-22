@@ -89,7 +89,7 @@ describe("app", function() {
               .input('2')
               .check.interaction({
                 state: 'states:status',
-                reply: 'Your coffee is brewing. Bye!'
+                reply: '- Your coffee is brewing. Bye!'
               }).run();
           });
         });

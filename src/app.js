@@ -36,7 +36,7 @@ go.app = function() {
               return {
                 name: nextState,
                 creator_opts: {
-                  brew: resp.data.brew
+                  brews: resp.data.brews
                 }
               };
             });
@@ -79,11 +79,15 @@ go.app = function() {
     });
 
     self.states.add('states:status', function(name, creator_opts) {
-      var brew = creator_opts.brew;
-      var text = 'Your ' + brew.beverage + ' is ' + brew.status + '. Bye!';
+      var texts = [];
+      var brews = creator_opts.brews;
+      for (var b in brews) {
+        var brew = brews[b];
+        texts.push('- Your ' + brew.beverage + ' is ' + brew.status + ". Bye!");
+      }
 
       return new EndState(name, {
-        text: text,
+        text: texts.join("\n"),
         next: 'states:end'
       });
     });

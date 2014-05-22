@@ -39,11 +39,11 @@ module.exports = function() {
              "response": {
                "code": 200,
                "data": {
-                 "brew": {
+                 "brews": [{
                    "beverage": "coffee",
                    "person": "stan",
                    "status": "brewing"
-                 }
+                 }]
                }
              }
            }];
