@@ -12,10 +12,10 @@ go.app = function() {
 
     self.states.add('states:start', function(name) {
       return new MenuState(name, {
-        question: 'Hi! Welcome to COFFEE HAVING NOM NOM!!',
+        question: 'Hi! Welcome to LARRY THE LEDGE!!',
 
         choices: [
-          new Choice('states:brew', 'Can haz brew?!'),
+          new Choice('states:brew', 'Can haz brew rooibos?!'),
           new Choice('states:status', 'Hows brew?'),
           new Choice('states:prefs', 'Much preference'),
           new Choice('states:end', 'kthxbye')
