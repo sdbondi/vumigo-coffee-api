@@ -29,8 +29,8 @@ describe("app", function() {
                     .check.interaction({
                         state: 'states:start',
                         reply: [
-                          'Hi! Welcome to LARRY THE LEDGE!!',
-                          '1. Can haz brew rooibos?!',
+                          'Hi! Welcome to COFFEE HAVING NOM NOM!!',
+                          '1. Can haz brew?!',
                           '2. Hows brew?',
                           '3. Much preference',
                           '4. kthxbye'
@@ -49,8 +49,8 @@ describe("app", function() {
                         state: 'states:brew',
                         reply: [
                           'What brew do you want to umm... brew bru?',
-                          '1. Mocha',
-                          '2. Cappuccino',
+                          '1. Coffee',
+                          '2. Tea',
                           '3. Back'
                         ].join('\n')
                     })
@@ -61,12 +61,24 @@ describe("app", function() {
         describe("when a user asks to brew", function() {
           it("tells you what you brewed", function() {
             return tester
-              .setup.user.state('state:brew')
+              .setup.user.state('states:brew')
               .input('1')
               .check.interaction({
                 state: 'states:end',
-                reply: 'Thanks, cheers! You brewed mocha'
-              });
+                reply: 'Thanks, cheers! You brewed coffee'
+              })
+              .run();
+          });
+
+          it('tells you that you brewed tea', function() {
+            return tester
+              .setup.user.state('states:brew')
+              .input('2')
+              .check.interaction({
+                state: 'states:end',
+                reply: 'Thanks, cheers! You brewed tea'
+              })
+              .run();
           });
         });
 
