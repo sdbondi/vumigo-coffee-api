@@ -40,8 +40,8 @@ module.exports = function (grunt) {
 
         watch: {
             src: {
-                files: ['<%= paths.src.all %>'],
-                tasks: ['build']
+                files: ['<%= paths.src.all %>', '<%= paths.test %>'],
+                tasks: ['test']
             }
         },
 

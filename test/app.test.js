@@ -23,45 +23,59 @@ describe("app", function() {
         });
 
         describe("when the user starts a session", function() {
-            it("should ask them want they want to do", function() {
+            it("asks them what they want to do", function() {
                 return tester
                     .start()
                     .check.interaction({
                         state: 'states:start',
                         reply: [
-                            'Hi there! What do you want to do?',
-                            '1. Show this menu again',
-                            '2. Exit'
+                          'Hi! Welcome to COFFEE HAVING NOM NOM!!',
+                          '1. Can haz brew?!',
+                          '2. Hows brew?',
+                          '3. Much preference',
+                          '4. kthxbye'
                         ].join('\n')
                     })
                     .run();
             });
         });
 
-        describe("when the user asks to see the menu again", function() {
-            it("should show the menu again", function() {
+        describe("when the user asks for brew menu", function() {
+            it("displays the brew menu", function() {
                 return tester
                     .setup.user.state('states:start')
                     .input('1')
                     .check.interaction({
-                        state: 'states:start',
+                        state: 'states:brew',
                         reply: [
-                            'Hi there! What do you want to do?',
-                            '1. Show this menu again',
-                            '2. Exit'
+                          'What brew do you want to umm... brew bru?',
+                          '1. Mocha',
+                          '2. Cappuccino',
+                          '3. Back'
                         ].join('\n')
                     })
                     .run();
             });
         });
 
+        describe("when a user asks to brew", function() {
+          it("tells you what you brewed", function() {
+            return tester
+              .setup.user.state('state:brew')
+              .input('1')
+              .check.interaction({
+                state: 'states:end',
+                reply: 'Thanks, cheers! You brewed mocha'
+              });
+          });
+        });
+
         describe("when the user asks to exit", function() {
-            it("should say thank you and end the session", function() {
+            it("says thank you and ends the session", function() {
                 return tester
                     // Set state to start
                     .setup.user.state('states:start')
-                    // Input 2
-                    .input('2')
+                    .input('4')
                     .check.interaction({
                         state: 'states:end',
                         reply: 'Thanks, cheers!'
