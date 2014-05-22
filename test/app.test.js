@@ -29,8 +29,8 @@ describe("app", function() {
                     .check.interaction({
                         state: 'states:start',
                         reply: [
-                          'Hi! Welcome to COFFEE HAVING NOM NOM!!',
-                          '1. Can haz brew?!',
+                          'Hi! Welcome to LARRY THE LEDGE!!',
+                          '1. Can haz brew rooibos?!',
                           '2. Hows brew?',
                           '3. Much preference',
                           '4. kthxbye'
