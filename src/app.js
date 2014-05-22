@@ -39,7 +39,7 @@ go.app = function() {
         ],
 
         next: function(choice) {
-          url = 'http://powerful-sierra-2165.herokuapp.com/api/v1/person/simon/';
+          url = 'http://powerful-sierra-2165.herokuapp.com/api/v1/person/stan/';
           if (choice.value == 'back') {
             return 'states:start';
           }
