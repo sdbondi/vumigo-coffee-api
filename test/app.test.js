@@ -82,6 +82,18 @@ describe("app", function() {
           });
         });
 
+        describe("when a users asks for the brwing status", function() {
+          it("tells you your brewing status", function() {
+            return tester
+              .setup.user.state('states:start')
+              .input('2')
+              .check.interaction({
+                state: 'states:status',
+                reply: 'Your coffee is brewing. Bye!'
+              }).run();
+          });
+        });
+
         describe("when the user asks to exit", function() {
             it("says thank you and ends the session", function() {
                 return tester

@@ -2,14 +2,14 @@ module.exports = function() {
     return [{
         "request": {
             "method": "POST",
-            "url": "http://powerful-sierra-2165.herokuapp.com/api/v1/person/simon/brew/coffee"
+            "url": "http://powerful-sierra-2165.herokuapp.com/api/v1/person/stan/brew/coffee"
         },
         "response": {
             "code": 200,
             "data": {
               "brew": {
                 "beverage": "coffee",
-                "person": "simon",
+                "person": "stan",
                 "status": "brewing"
             }
         }
@@ -18,14 +18,30 @@ module.exports = function() {
            {
              "request": {
                "method": "POST",
-               "url": "http://powerful-sierra-2165.herokuapp.com/api/v1/person/simon/brew/tea"
+               "url": "http://powerful-sierra-2165.herokuapp.com/api/v1/person/stan/brew/tea"
              },
              "response": {
                "code": 200,
                "data": {
                  "brew": {
                    "beverage": "tea",
-                   "person": "simon",
+                   "person": "stan",
+                   "status": "brewing"
+                 }
+               }
+             }
+           },
+           {
+             "request": {
+               "method": "GET",
+               "url": "http://powerful-sierra-2165.herokuapp.com/api/v1/person/stan/status"
+             },
+             "response": {
+               "code": 200,
+               "data": {
+                 "brew": {
+                   "beverage": "coffee",
+                   "person": "stan",
                    "status": "brewing"
                  }
                }
